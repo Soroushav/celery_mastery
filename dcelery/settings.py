@@ -112,4 +112,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 CELERY_BROKER_URL = env('CELERY_BROKER', default='redis://redis:6379/0')
-CELERY_RESULT_BACKEND = end('CELERY_BACKEND', default='redis://redis:6379/0')
+CELERY_RESULT_BACKEND = env('CELERY_BACKEND', default='redis://redis:6379/0')
