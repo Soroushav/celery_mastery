@@ -23,7 +23,7 @@ services:
 
   celery:
     container_name: celery
-    command: celery --app=dcelery worker -l INFO
+    command: celery --app=dcelery worker -l INFO -Q queue1
     build:
       context: .
     volumes:
@@ -37,7 +37,7 @@ services:
 
   celery2:
     container_name: celery2
-    command: celery -A celery worker -l INFO
+    command: celery -A celerytask worker -l INFO -Q queue2
     build:
       context: ./celeryworker
     volumes:
