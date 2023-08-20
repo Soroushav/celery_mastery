@@ -34,3 +34,14 @@ services:
       - ALLOWED_HOSTS=localhost,127.0.0.1
     depends_on:
       - redis
+
+  celery2:
+    container_name: celery2
+    command: celery -A celery worker -l INFO
+    build:
+      context: ./celeryworker
+    volumes:
+      - ./celeryworker:/usr/src/app/
+    depends_on:
+      - redis
+      - django
